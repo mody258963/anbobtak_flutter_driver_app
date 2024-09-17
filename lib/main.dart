@@ -1,10 +1,7 @@
 
-import 'package:anbobtak_flutter_driver_app/presntation_lyar/widgets/app_router.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:animate_do/animate_do.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+import 'presntation_lyar/widgets/app_router.dart';
 
 String? initialRoute;
 String? ids;

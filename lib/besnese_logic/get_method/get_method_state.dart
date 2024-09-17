@@ -1,5 +1,5 @@
 
-import 'package:anbobtak/web_servese/model/product.dart';
+import 'package:anbobtak_flutter_driver_app/web_servese/model/product.dart';
 import 'package:flutter/widgets.dart';
 
 

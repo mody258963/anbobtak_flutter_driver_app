@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -122,20 +123,20 @@ class Widgets {
     );
   }
 
-  Widget ThiredParty(IconData icon , onPressed, text) {
+  Widget ThiredParty(IconData icon, onPressed, text) {
     return Container(
       decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 1,
-                    blurRadius: 3,
-                    offset: Offset(0, 1), // changes position of shadow
-                  ),
-                ],
-              ),
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 1,
+            blurRadius: 3,
+            offset: Offset(0, 1), // changes position of shadow
+          ),
+        ],
+      ),
       width: double.infinity,
       height: 50,
       child: ElevatedButton.icon(
@@ -222,8 +223,8 @@ class Widgets {
         );
       },
     );
-  
   }
+
 //----------------------------------------------------------
   Future<void> requestLocationPermission() async {
     var status = await Permission.location.request();
@@ -237,14 +238,14 @@ class Widgets {
     }
   }
 
- //LOGO of the main Screen  
-  Widget Logo( BuildContext context) {
-        double width = MediaQuery.of(context).size.width;
+  //LOGO of the main Screen
+  Widget LogoText(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return ClipPath(
-clipper: CurvedClipper(),
+      clipper: CurvedClipper(),
       child: Container(
-        height: height * 0.4,
+        height: height * 0.5,
         decoration: BoxDecoration(
           color: Colors.lightBlue[100],
           borderRadius: BorderRadius.only(
@@ -252,12 +253,48 @@ clipper: CurvedClipper(),
             bottomRight: Radius.circular(50),
           ),
         ),
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Image.asset(
-              'assets/logo.png', // Replace with your logo path
-              height: 250,
+        child: Positioned(
+          top: height * 0.3,
+          left: width * 0.11,
+          child: Transform(
+            transform: Matrix4.identity()
+              ..rotateZ(-0.1)
+              ..scale(1.4),
+            child: Center(
+              child: Padding(
+                  padding: EdgeInsets.only(
+                      bottom: height * 0.16, right: height * 0.17),
+                  child: RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: ' Driver',
+                          style: GoogleFonts.mrsSheppards(
+                            textStyle: TextStyle(
+                              fontSize: width * 0.19,
+                              color: MyColors.Driverblue,
+                            ),
+                          ),
+                        ),
+                        TextSpan(
+                          text: '\n', // Line break
+                        ),
+                        WidgetSpan(
+                          child: SizedBox(
+                              height: height * 0.03), // Adjust height to control spacing
+                        ),
+                        TextSpan(
+                          text: 'anbobtak',
+                          style: GoogleFonts.mrsSheppards(
+                            textStyle: TextStyle(
+                              fontSize: width * 0.19,
+                              color: MyColors.Driverblue,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
             ),
           ),
         ),
@@ -265,15 +302,16 @@ clipper: CurvedClipper(),
     );
   }
 
-
-
+  //LINES IN THE DRIVER SIGNIN PAGE
 }
+
 class CurvedClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     final path = Path();
     path.lineTo(0, size.height * 0.8);
-    path.quadraticBezierTo(size.width / 2, size.height, size.width, size.height * 0.7);
+    path.quadraticBezierTo(
+        size.width / 2, size.height, size.width, size.height * 0.7);
     path.lineTo(size.width, 0);
     path.close();
     return path;
@@ -285,3 +323,6 @@ class CurvedClipper extends CustomClipper<Path> {
   }
 }
 //_----------------------------------------------------
+
+
+
