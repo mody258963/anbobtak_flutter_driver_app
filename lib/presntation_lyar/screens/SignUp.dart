@@ -57,6 +57,20 @@ class _SignUpState extends State<SignUp> {
               ),
             ),
           )),
+      SizedBox(
+        height: 20,
+      ),
+      FadeInUp(
+          duration: Duration(milliseconds: 1700),
+          child: Container(
+            width: width * 0.9,
+            child: Column(
+              children: [
+                TextButton(onPressed: () {}, child: Text("Forget Password ?")),
+                _widgets.AppButton(() {}, _isverfiy ? 'Sign Up' : 'Verfiy'),
+              ],
+            ),
+          ))
     ])));
   }
 }
