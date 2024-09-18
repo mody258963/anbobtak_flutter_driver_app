@@ -3,30 +3,26 @@ import 'package:anbobtak_flutter_driver_app/presntation_lyar/widgets/widgets.dar
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+class SignIn extends StatefulWidget {
+  const SignIn({super.key});
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<SignIn> createState() => _SignInState();
 }
 
-class _SignUpState extends State<SignUp> {
-  Widgets _widgets = Widgets();
-  final TextEditingController namecontroller = TextEditingController();
+class _SignInState extends State<SignIn> {
   final TextEditingController phonecontroller = TextEditingController();
   final TextEditingController passwordcontroller = TextEditingController();
-  final TextEditingController OPTcontroller = TextEditingController();
-  bool _isSend = false;
-  bool _isverfiy = false;
+    Widgets _widgets = Widgets();
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    return MaterialApp(
-        home: Scaffold(
-            body: Column(children: [
-      _widgets.LogoText(context),
-      FadeInUp(
+  final width = MediaQuery.of(context).size.width;
+    return MaterialApp(home: Scaffold(
+      body: Column(
+        children: [
+          _widgets.LogoText(context),
+              FadeInUp(
           duration: Duration(milliseconds: 1700),
           child: Container(
             width: width * 0.9,
@@ -44,21 +40,17 @@ class _SignUpState extends State<SignUp> {
             child: Center(
               child: Column(
                 children: [
-                  _widgets.TextFiledLogin(
-                      'Name', namecontroller, 7, 'Name is very short', context),
+                
                   _widgets.TextFiledLogin('Phone Number', phonecontroller, 9,
                       'Very short email', context),
-                  if (_isSend)
-                    _widgets.TextFiledLogin('OTP Code', OPTcontroller, 6,
-                        'Enter 6 digits in the What\'sApp SMS ', context),
-                  if (_isverfiy)
+          
                     _widgets.TextFiledLogin('Password', passwordcontroller, 8,
                         'Please enter more than 8 characters', context),
                 ],
               ),
             ),
           )),
-      SizedBox(
+              SizedBox(
         height: 20,
       ),
       FadeInUp(
@@ -68,13 +60,17 @@ class _SignUpState extends State<SignUp> {
             child: Column(
               children: [
                 TextButton(onPressed: () {
-                  Navigator.of(context, rootNavigator: true)
-              .pushNamed(Doc);
-                }, child: Text("Forget Password ?",style: TextStyle(color: Colors.grey),)),
-                _widgets.AppButton(() {}, _isverfiy ? 'Sign Up' : 'Verfiy'),
+                            Navigator.of(context, rootNavigator: true)
+              .pushNamed(signup);
+                }, child: Text("Create Account ?",style: TextStyle(color: Colors.grey),)),
+                _widgets.AppButton(() {
+
+                },'Sign In'),
               ],
             ),
           ))
-    ])));
+        ]
+      ),
+    ),);
   }
 }

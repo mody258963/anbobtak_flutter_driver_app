@@ -159,6 +159,40 @@ class Widgets {
     );
   }
 
+  Widget Dropbox(String labeltext, List<String> list , onChange) {
+    return DropdownButtonFormField<String>(
+      decoration: InputDecoration(
+        labelText: labeltext,
+        labelStyle: TextStyle(color: MyColors.Secondcolor),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: MyColors.Secondcolor
+          )
+        ),
+         enabledBorder: OutlineInputBorder(
+      borderSide: BorderSide(
+        color: MyColors.Secondcolor, // Color when the field is not focused
+        width: 2.0, // Border width
+      ),
+    ),
+     focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(
+        color: MyColors.Secondcolor, // Color when the field is not focused
+        width: 2.0, // Border width
+      ),
+    ),
+      ),
+      dropdownColor: MyColors.Secondcolor,
+      items: list.map((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+      onChanged: onChange 
+    );
+  }
+
   Widget TitleText(name, double font) {
     return FittedBox(
       fit: BoxFit.scaleDown,
@@ -224,6 +258,7 @@ class Widgets {
       },
     );
   }
+  //=====================================================
 
 //----------------------------------------------------------
   Future<void> requestLocationPermission() async {
@@ -281,10 +316,11 @@ class Widgets {
                         ),
                         WidgetSpan(
                           child: SizedBox(
-                              height: height * 0.03), // Adjust height to control spacing
+                              height: height *
+                                  0.03), // Adjust height to control spacing
                         ),
                         TextSpan(
-                          text: 'anbobtak',
+                          text: 'Anbobtak',
                           style: GoogleFonts.mrsSheppards(
                             textStyle: TextStyle(
                               fontSize: width * 0.19,

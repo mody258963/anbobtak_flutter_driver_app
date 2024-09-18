@@ -1,6 +1,8 @@
 
 import 'package:anbobtak_flutter_driver_app/besnese_logic/email_auth/email_auth_cubit.dart';
 import 'package:anbobtak_flutter_driver_app/costanse/pages.dart';
+import 'package:anbobtak_flutter_driver_app/presntation_lyar/screens/DocScreen.dart';
+import 'package:anbobtak_flutter_driver_app/presntation_lyar/screens/SignIn.dart';
 import 'package:anbobtak_flutter_driver_app/presntation_lyar/screens/SignUp.dart';
 import 'package:anbobtak_flutter_driver_app/web_servese/dio/web_serv.dart';
 import 'package:anbobtak_flutter_driver_app/web_servese/reproserty/myRepo.dart';
@@ -25,11 +27,23 @@ class AppRouter {
 
   Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
-       case logain:
+       case signup:
         return MaterialPageRoute(
             builder: (_) => BlocProvider<EmailAuthCubit>.value(
                   value: emailAuthCubit!,
                   child: const SignUp(),
+                ));
+                 case Doc:
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider<EmailAuthCubit>.value(
+                  value: emailAuthCubit!,
+                  child: const DocScreen(),
+                ));
+                 case logain:
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider<EmailAuthCubit>.value(
+                  value: emailAuthCubit!,
+                  child: const SignIn(),
                 ));
     }
   }
