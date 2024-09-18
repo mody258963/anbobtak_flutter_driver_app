@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:anbobtak_flutter_driver_app/costanse/colors.dart';
 import 'package:anbobtak_flutter_driver_app/presntation_lyar/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class DocScreen extends StatefulWidget {
   const DocScreen({super.key});
@@ -13,9 +16,70 @@ class _DocScreenState extends State<DocScreen> {
 
   final TextEditingController IdNumber = TextEditingController();
   Widgets _widgets = Widgets();
+   File? _frontIdImage;
+  File? _backIdImage;
+  File? _drivingLicenseImage;
+
+  final ImagePicker _picker = ImagePicker();
+
+  Future<void> _pickImage(String imageType) async {
+    final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      setState(() {
+        switch (imageType) {
+          case 'frontId':
+            _frontIdImage = File(pickedFile.path);
+            break;
+          case 'backId':
+            _backIdImage = File(pickedFile.path);
+            break;
+          case 'drivingLicense':
+            _drivingLicenseImage = File(pickedFile.path);
+            break;
+        }
+      });
+    }
+  }
+
+  Widget _buildImagePicker(String imageType, String label, File? image) {
+        final width = MediaQuery.of(context).size.width;
+        final height = MediaQuery.of(context).size.height;
+
+    return GestureDetector(
+      onTap: () => _pickImage(imageType),
+      child: Container(
+        width: double.infinity,
+        height: height * 0.09,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(color: Colors.blue), // Replace Colors.blue with your color
+          image: image != null
+              ? DecorationImage(
+                  image: FileImage(image),
+                  fit: BoxFit.cover,
+                )
+              : null,
+        ),
+        child: image == null
+            ? Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.image, color: Colors.blue), // Replace Colors.blue with your color
+                    SizedBox(width: 10),
+                    Text(label),
+                  ],
+                ),
+              )
+            : null,
+      ),
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
+        final width = MediaQuery.of(context).size.width;
     return MaterialApp(
       home: Scaffold(
         backgroundColor: MyColors.white,
@@ -35,86 +99,23 @@ class _DocScreenState extends State<DocScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              GestureDetector(
-                onTap: () {
-                  // Handle image upload for ID photo
-                },
-                child: Container(
-                  width: double.infinity,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: Colors.grey),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.image),
-                      SizedBox(width: 10),
-                      Text("Add ID photo"),
-                    ],
-                  ),
-                ),
-              ),
+            _buildImagePicker('frontId', 'Add Front of ID photo', _frontIdImage),
+            SizedBox(height: 20),
+            _buildImagePicker('backId', 'Add Back of ID photo', _backIdImage),
+            SizedBox(height: 20),
+            _buildImagePicker('drivingLicense', 'Add Driving License photo', _drivingLicenseImage),
+
               SizedBox(height: 20),
-              GestureDetector(
-                onTap: () {
-                
-                },
-                child: Container(
-                  width: double.infinity,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: Colors.grey),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.image),
-                      SizedBox(width: 10),
-                      Text("Driving license photo"),
-                    ],
-                  ),
-                ),
-              ),
+      _widgets.TextFieldinApp(IdNumber,'ID number',13,'13 Charactor in front of the ID card','13 Charactor in front of the ID card',13,0,0,TextInputType.number,context),
               SizedBox(height: 20),
-      _widgets.TextFieldinApp(IdNumber,'ID number',13,'13 Charactor in front of the ID card','13 Charactor in front of the ID card',13,0,0),
-              SizedBox(height: 20),
-              DropdownButtonFormField<String>(
-                decoration: InputDecoration(
-                  labelText: 'Region',
-                  border: OutlineInputBorder(),
-                ),
-                items: <String>['Region 1', 'Region 2', 'Region 3'].map((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-                onChanged: (newValue) {
-                  // Handle change
-                },
-              ),
+          _widgets.Dropbox('Viachel',['Car', 'Tricycle', 'Truck'],(newValue) {
+      },),
               SizedBox(height: 20),
        _widgets.Dropbox('Viachel',['Car', 'Tricycle', 'Truck'],(newValue) {
       },),
               SizedBox(height: 20),
-              DropdownButtonFormField<String>(
-                decoration: InputDecoration(
-                  labelText: 'Governorate',
-                  border: OutlineInputBorder(),
-                ),
-                items: <String>['Governorate 1', 'Governorate 2', 'Governorate 3'].map((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-                onChanged: (newValue) {
-                  // Handle change
-                },
-              ),
+              _widgets.Dropbox('Viachel',['Car', 'Tricycle', 'Truck'],(newValue) {
+      },),
               SizedBox(height: 20),
               _widgets.AppButton((){
 

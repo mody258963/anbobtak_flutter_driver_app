@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:anbobtak_flutter_driver_app/costanse/colors.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/cupertino.dart';
@@ -5,10 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Widgets {
+
   Widget TextFiledLogin(
       text, input, int short, String max, BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -69,7 +73,7 @@ class Widgets {
                 color: MyColors.Secondcolor), // Change the color when focused
           ),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: MyColors.whitefade),
+            borderSide: BorderSide(color: MyColors.Secondcolor,width: 2),
           ),
           labelText: text,
           labelStyle: TextStyle(color: Colors.black),
@@ -192,6 +196,8 @@ class Widgets {
       onChanged: onChange 
     );
   }
+
+
 
   Widget TitleText(name, double font) {
     return FittedBox(
