@@ -111,10 +111,11 @@ class _DocScreenState extends State<DocScreen> {
           _widgets.Dropbox('Viachel',['Car', 'Tricycle', 'Truck'],(newValue) {
       },),
               SizedBox(height: 20),
-       _widgets.Dropbox('Viachel',['Car', 'Tricycle', 'Truck'],(newValue) {
+       _widgets.Dropbox('Goverment',['Cairo', 'Alex', 'Mansora'],(newValue) {
       },),
               SizedBox(height: 20),
-              _widgets.Dropbox('Viachel',['Car', 'Tricycle', 'Truck'],(newValue) {
+              _widgets.Dropbox('Regoin',['New Cairo', 'New Cairo 1', 'New Cairo 2'],(newValue) {
+                
       },),
               SizedBox(height: 20),
               _widgets.AppButton((){
