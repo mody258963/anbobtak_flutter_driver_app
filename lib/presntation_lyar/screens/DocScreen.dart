@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:anbobtak_flutter_driver_app/costanse/colors.dart';
+import 'package:anbobtak_flutter_driver_app/costanse/pages.dart';
 import 'package:anbobtak_flutter_driver_app/presntation_lyar/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -115,11 +116,12 @@ class _DocScreenState extends State<DocScreen> {
       },),
               SizedBox(height: 20),
               _widgets.Dropbox('Regoin',['New Cairo', 'New Cairo 1', 'New Cairo 2'],(newValue) {
-                
+
       },),
               SizedBox(height: 20),
               _widgets.AppButton((){
-
+                                          Navigator.of(context, rootNavigator: true)
+              .pushNamed(nav);
               }, "Continue"),
               SizedBox(height: 20),
               Center(

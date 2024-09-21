@@ -7,8 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class NavigationBars extends StatefulWidget {
-  const NavigationBars({super.key, required this.name});
-  final String? name;
+  const NavigationBars({super.key});
   @override
   State<NavigationBars> createState() => _NavigationBarsState();
 }
@@ -51,7 +50,6 @@ class _NavigationBarsState extends State<NavigationBars> {
 
   @override
   Widget build(BuildContext context) {
-    print('${widget.name}');
     return MaterialApp(
       home: Scaffold(
         body: PersistentTabView(
