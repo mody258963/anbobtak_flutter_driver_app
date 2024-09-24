@@ -2,7 +2,9 @@
 import 'package:anbobtak_flutter_driver_app/besnese_logic/email_auth/email_auth_cubit.dart';
 import 'package:anbobtak_flutter_driver_app/costanse/pages.dart';
 import 'package:anbobtak_flutter_driver_app/presntation_lyar/screens/DocScreen.dart';
+import 'package:anbobtak_flutter_driver_app/presntation_lyar/screens/MyorderScreen.dart';
 import 'package:anbobtak_flutter_driver_app/presntation_lyar/screens/NavigationBar.dart';
+import 'package:anbobtak_flutter_driver_app/presntation_lyar/screens/OrderDetails.dart';
 import 'package:anbobtak_flutter_driver_app/presntation_lyar/screens/SignIn.dart';
 import 'package:anbobtak_flutter_driver_app/presntation_lyar/screens/SignUp.dart';
 import 'package:anbobtak_flutter_driver_app/web_servese/dio/web_serv.dart';
@@ -52,6 +54,20 @@ class AppRouter {
                   value: emailAuthCubit!,
                   child: const NavigationBars(),
                 ));
+           case orderDetals:
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider<EmailAuthCubit>.value(
+                  value: emailAuthCubit!,
+                  child: const OrderDetails(),
+                ));
+           case order:
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider<EmailAuthCubit>.value(
+                  value: emailAuthCubit!,
+                  child: const MyOrderScreen(),
+                ));
     }
+    
+    return null;
   }
 }

@@ -22,17 +22,17 @@ class _NavigationBarsState extends State<NavigationBars> {
   List<PersistentBottomNavBarItem> _navBarItems() {
     return [
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.home),
+        icon: Icon(Icons.list),
         activeColorPrimary: MyColors.Secondcolor,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.delivery_dining_sharp),
+        icon: Icon(Icons.check_box),
         activeColorPrimary: MyColors.Secondcolor,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.person),
+        icon: Icon(Icons.account_balance_wallet_rounded),
         activeColorPrimary: MyColors.Secondcolor,
         inactiveColorPrimary: Colors.grey,
       ),

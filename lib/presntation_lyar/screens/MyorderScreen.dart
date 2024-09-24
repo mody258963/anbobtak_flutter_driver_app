@@ -1,5 +1,6 @@
 
 import 'package:anbobtak_flutter_driver_app/costanse/colors.dart';
+import 'package:anbobtak_flutter_driver_app/costanse/pages.dart';
 import 'package:anbobtak_flutter_driver_app/presntation_lyar/screens/OrderDetails.dart';
 import 'package:flutter/material.dart';
 
@@ -66,7 +67,8 @@ Widgets _widgets = Widgets();
               children: [
                 TextButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => OrderDetails()));
+                                       Navigator.of(context, rootNavigator: true)
+              .pushNamed(orderDetals);
                   },
                   child: Text('View details',style: TextStyle(color: MyColors.Secondcolor),),
                 ),
