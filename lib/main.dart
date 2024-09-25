@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
 import 'presntation_lyar/widgets/app_router.dart';
 
@@ -7,6 +7,8 @@ String? initialRoute;
 String? ids;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+
 
   // final prefs = await SharedPreferences.getInstance();
 
@@ -51,9 +53,10 @@ void main() async {
   // } else {
   //   initialRoute = logain;
   //   await prefs.clear();
-  // }
+  // }      
 
   runApp(MyApp(
+
     appRouter: AppRouter(),
   ));
 }
