@@ -1,6 +1,6 @@
 import 'package:anbobtak_flutter_driver_app/costanse/colors.dart';
 import 'package:anbobtak_flutter_driver_app/presntation_lyar/screens/MyorderScreen.dart';
-import 'package:anbobtak_flutter_driver_app/presntation_lyar/screens/ProfileScreen.dart';
+import 'package:anbobtak_flutter_driver_app/presntation_lyar/screens/WalletScreen.dart';
 import 'package:anbobtak_flutter_driver_app/presntation_lyar/screens/RequestScreen.dart';
 import 'package:anbobtak_flutter_driver_app/presntation_lyar/widgets/widgets.dart';
 import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
@@ -49,7 +49,7 @@ class _NavigationBarsState extends State<NavigationBars> {
     return [
       RequestScreen(),
       MyOrderScreen(),
-      ProfileScreen(),
+      WalletScreen(),
     ];
   }
 

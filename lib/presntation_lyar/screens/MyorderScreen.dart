@@ -30,7 +30,7 @@ Widgets _widgets = Widgets();
             Row(
               children: [
                 Text('Jun 01 . 2:20am', style: TextStyle(fontSize: 16)),
-                Spacer(),
+                SizedBox(width: 170,),
                Container(
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 5),
       decoration: BoxDecoration(
