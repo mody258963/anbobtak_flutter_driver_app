@@ -1,8 +1,10 @@
 
 import 'package:anbobtak_flutter_driver_app/costanse/colors.dart';
+import 'package:anbobtak_flutter_driver_app/costanse/extensions.dart';
 import 'package:anbobtak_flutter_driver_app/costanse/pages.dart';
 import 'package:anbobtak_flutter_driver_app/presntation_lyar/screens/OrderDetails.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../widgets/widgets.dart';
 
@@ -67,8 +69,7 @@ Widgets _widgets = Widgets();
               children: [
                 TextButton(
                   onPressed: () {
-                                       Navigator.of(context, rootNavigator: true)
-              .pushNamed(orderDetals);
+                                      context.pushReplacementNamed(orderDetals);
                   },
                   child: Text('View details',style: TextStyle(color: MyColors.Secondcolor),),
                 ),
@@ -103,20 +104,24 @@ Widgets _widgets = Widgets();
   Widget build(BuildContext context) {
       double width = MediaQuery.of(context).size.width;
   double height = MediaQuery.of(context).size.height;
-    return MaterialApp(
-      
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: MyColors.white,
-          title: Text('Order'),
-        ),
-        backgroundColor: MyColors.white,body: Center(
-          child: Column(
-            children: [       
-              Container(height: height * 0.24,child: ContanerOrder())
-            ],
+    return ScreenUtilInit(
+      designSize: Size(393, 852),
+      minTextAdapt: true,
+      child: MaterialApp(
+        
+        home: Scaffold(
+          appBar: AppBar(
+            backgroundColor: MyColors.white,
+            title: Text('Order'),
           ),
-        ),),
+          backgroundColor: MyColors.white,body: Center(
+            child: Column(
+              children: [       
+                Container(height: height * 0.24,child: ContanerOrder())
+              ],
+            ),
+          ),),
+      ),
     );
   }
 }

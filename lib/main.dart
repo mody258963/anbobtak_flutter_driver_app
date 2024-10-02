@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geolocator/geolocator.dart';
 
 import 'presntation_lyar/widgets/app_router.dart';
@@ -54,7 +55,7 @@ void main() async {
   //   initialRoute = logain;
   //   await prefs.clear();
   // }      
-
+  await ScreenUtil.ensureScreenSize();
   runApp(MyApp(
 
     appRouter: AppRouter(),
