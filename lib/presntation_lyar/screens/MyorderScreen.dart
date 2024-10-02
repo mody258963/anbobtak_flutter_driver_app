@@ -19,8 +19,7 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
 Widgets _widgets = Widgets();
 
   Widget ContanerOrder() {
-  double width = MediaQuery.of(context).size.width;
-  double height = MediaQuery.of(context).size.height;
+  ScreenUtil.init(context, designSize: const Size(360, 690));  
    return Card(
     color: Colors.white,
       margin: EdgeInsets.all(10),
@@ -102,26 +101,20 @@ Widgets _widgets = Widgets();
 
   @override
   Widget build(BuildContext context) {
-      double width = MediaQuery.of(context).size.width;
-  double height = MediaQuery.of(context).size.height;
-    return ScreenUtilInit(
-      designSize: Size(393, 852),
-      minTextAdapt: true,
-      child: MaterialApp(
-        
-        home: Scaffold(
-          appBar: AppBar(
-            backgroundColor: MyColors.white,
-            title: Text('Order'),
+    ScreenUtil.init(context, designSize: const Size(360, 852));
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: MyColors.white,
+          title: Text('Order'),
+        ),
+        backgroundColor: MyColors.white,body: Center(
+          child: Column(
+            children: [       
+              Container(height:300.h,child: ContanerOrder())
+            ],
           ),
-          backgroundColor: MyColors.white,body: Center(
-            child: Column(
-              children: [       
-                Container(height: height * 0.24,child: ContanerOrder())
-              ],
-            ),
-          ),),
-      ),
+        ),),
     );
   }
 }
