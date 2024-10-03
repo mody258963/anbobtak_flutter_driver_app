@@ -22,9 +22,9 @@ Widgets _widgets = Widgets();
   ScreenUtil.init(context, designSize: const Size(360, 690));  
    return Card(
     color: Colors.white,
-      margin: EdgeInsets.all(10),
+      margin: EdgeInsets.all(8.w),
       child: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding:  EdgeInsets.all(15.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -48,7 +48,7 @@ Widgets _widgets = Widgets();
     ),
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 10.h),
             Row(
               children: [
       
@@ -68,7 +68,7 @@ Widgets _widgets = Widgets();
               children: [
                 TextButton(
                   onPressed: () {
-                                      context.pushReplacementNamed(orderDetals);
+                    context.pushReplacementNamed(orderDetals);
                   },
                   child: Text('View details',style: TextStyle(color: MyColors.Secondcolor),),
                 ),
@@ -111,7 +111,7 @@ Widgets _widgets = Widgets();
         backgroundColor: MyColors.white,body: Center(
           child: Column(
             children: [       
-              Container(height:300.h,child: ContanerOrder())
+              Container(height:200.h,child: ContanerOrder())
             ],
           ),
         ),),
