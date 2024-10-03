@@ -19,30 +19,29 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
 Widgets _widgets = Widgets();
 
   Widget ContanerOrder() {
-  ScreenUtil.init(context, designSize: const Size(360, 690));  
    return Card(
     color: Colors.white,
-      margin: EdgeInsets.all(8.w),
+      margin: EdgeInsets.all(10.w),
       child: Padding(
-        padding:  EdgeInsets.all(15.w),
+        padding:  EdgeInsets.all(10.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
-                Text('Jun 01 . 2:20am', style: TextStyle(fontSize: 16)),
-                SizedBox(width: 170,),
+                Text('Jun 01 . 2:20am', style: TextStyle(fontSize: 16.sp)),
+                SizedBox(width: 120.w,),
                Container(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+      padding: EdgeInsets.symmetric(horizontal: 16.h, vertical: 5.w),
       decoration: BoxDecoration(
         color: Colors.grey[300],
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10.r),
       ),
       child: Text(
         'Deliver',
         style: TextStyle(
           color: Colors.grey[700],
-          fontSize: 14,
+          fontSize: 12.sp,
         ),
       ),
     ),
@@ -52,17 +51,17 @@ Widgets _widgets = Widgets();
             Row(
               children: [
       
-                SizedBox(width: 10),
+                SizedBox(width: 10.h),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Order ID: 12', style: TextStyle(fontSize: 16)),
-                    Text('EGP 12.1', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                    Text('Order ID: 12', style: TextStyle(fontSize: 14.sp)),
+                    Text('EGP 12.1', style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold)),
                   ],
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 10.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -79,15 +78,15 @@ Widgets _widgets = Widgets();
       style: OutlinedButton.styleFrom(
         side: BorderSide(color: Colors.blue),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(10.r),
         ),
-        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 9),
+        padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 9.h),
       ),
       child: Text(
         'Report',
         style: TextStyle(
           color: Colors.black,
-          fontSize: 16,
+          fontSize: 14.sp,
         ),
       ),
     ),

@@ -2,6 +2,7 @@
 import 'package:anbobtak_flutter_driver_app/costanse/colors.dart';
 import 'package:anbobtak_flutter_driver_app/presntation_lyar/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class WalletScreen extends StatefulWidget {
@@ -17,6 +18,7 @@ class _WalletScreenState extends State<WalletScreen> {
 
   @override
   Widget build(BuildContext context) {
+        ScreenUtil.init(context, designSize: const Size(360, 852));
     return MaterialApp(
       home: Scaffold(
         backgroundColor: MyColors.white,
@@ -101,8 +103,10 @@ class _WalletScreenState extends State<WalletScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                 _widgets.AppButton((){}, 'Add Money'),
-                 _widgets.AppButton((){}, 'Transfer')
+                  FloatingActionButton(onPressed: (){},child: SizedBox(
+                    width: 200.w,
+                    height: 50.h,
+                  ),),
                 ],
               ),
             ],
