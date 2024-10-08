@@ -12,7 +12,6 @@ class LoginSuccess extends EmailAuthState {
 
   LoginSuccess(this.name );
 
-
 }
 
 class SendCodeLoding extends EmailAuthState {}

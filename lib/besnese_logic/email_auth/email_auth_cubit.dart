@@ -14,12 +14,12 @@ class EmailAuthCubit extends Cubit<EmailAuthState> {
   final MyRepo myRepo;
   EmailAuthCubit(this.myRepo) : super(EmailAuthInitial());
 
-  Future<FutureOr<void>> loginUser(String email, String password) async {
+  Future<FutureOr<void>> loginUser(String phone, String password) async {
     emit(LoginLoading());
-
+    
     try {
       List<Auth> result =
-          await myRepo.login('login', {'phone': email, 'password': password});
+          await myRepo.login('login', {'phone': phone, 'password': password});
       print('=====cubit====$result');
       emit(LoginSuccess(result.first.data!.user?.name));
     } catch (e) {
