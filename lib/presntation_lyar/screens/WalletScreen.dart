@@ -100,14 +100,29 @@ class _WalletScreenState extends State<WalletScreen> {
               ),
               
               // Action Buttons (Add Money, Transfer)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  FloatingActionButton(onPressed: (){},child: SizedBox(
-                    width: 200.w,
-                    height: 50.h,
-                  ),),
-                ],
+        
+            ],
+          ),
+        ),
+               floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: Padding(
+          padding:  EdgeInsets.only( bottom: 3.h),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Container(
+                width: 200.w,
+                child: FloatingActionButton(
+                  onPressed: () {},
+                  
+                  child: Icon(Icons.add),
+                  heroTag: 'fab1', // Ensure unique tags for FABs
+                ),
+              ),
+              FloatingActionButton(
+                onPressed: () {},
+                child: Icon(Icons.remove),
+                heroTag: 'fab2',
               ),
             ],
           ),
