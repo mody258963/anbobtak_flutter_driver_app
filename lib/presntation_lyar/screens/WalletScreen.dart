@@ -105,27 +105,53 @@ class _WalletScreenState extends State<WalletScreen> {
           ),
         ),
                floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: Padding(
-          padding:  EdgeInsets.only( bottom: 3.h),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Container(
-                width: 200.w,
+        floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(left: 15.sp),
+              child: Container(
+                width: 150.w,
+                height: 50.h,
                 child: FloatingActionButton(
+                  backgroundColor: MyColors.Secondcolor,
                   onPressed: () {},
-                  
-                  child: Icon(Icons.add),
+                  child: Padding(
+                    padding:  EdgeInsets.only(left: 30.sp),
+                    child: Row(children: [
+                      Text('Add Money',style: TextStyle(color: Colors.white)), 
+                      Padding(
+                        padding:  EdgeInsets.only(left: 8.sp),
+                        child: Icon(Icons.attach_money ,color: Colors.white,),
+                      )
+                    ],),
+                  ),
                   heroTag: 'fab1', // Ensure unique tags for FABs
                 ),
               ),
-              FloatingActionButton(
-                onPressed: () {},
-                child: Icon(Icons.remove),
-                heroTag: 'fab2',
+            ),
+            Padding(
+              padding: EdgeInsets.only(right: 15.sp),
+              child: Container(
+                width: 150.w,
+                child: FloatingActionButton(
+                  backgroundColor: MyColors.Secondcolor,
+                  onPressed: () {},
+                  child: Padding(
+                    padding:  EdgeInsets.only(left: 17.sp),
+                    child: Row(children: [
+                      Text('Transfer Money',style: TextStyle(color: Colors.white),), 
+                      Padding(
+                        padding:  EdgeInsets.only(left: 8.sp),
+                        child: Icon(Icons.send ,color: Colors.white,),
+                      )
+                    ],),
+                  ),
+                  heroTag: 'fab2',
+                ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

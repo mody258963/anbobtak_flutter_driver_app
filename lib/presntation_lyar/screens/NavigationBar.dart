@@ -5,6 +5,7 @@ import 'package:anbobtak_flutter_driver_app/presntation_lyar/screens/RequestScre
 import 'package:anbobtak_flutter_driver_app/presntation_lyar/widgets/widgets.dart';
 import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class NavigationBars extends StatefulWidget {
@@ -27,17 +28,17 @@ class _NavigationBarsState extends State<NavigationBars> {
   List<PersistentBottomNavBarItem> _navBarItems() {
     return [
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.list),
+        icon: Icon(Icons.list,size: 30.sp,),
         activeColorPrimary: MyColors.Secondcolor,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.check_box),
+        icon: Icon(Icons.check_box,size: 30.sp),
         activeColorPrimary: MyColors.Secondcolor,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.account_balance_wallet_rounded),
+        icon: Icon(Icons.account_balance_wallet_rounded,size: 30.sp),
         activeColorPrimary: MyColors.Secondcolor,
         inactiveColorPrimary: Colors.grey,
       ),
@@ -55,6 +56,7 @@ class _NavigationBarsState extends State<NavigationBars> {
 
   @override
   Widget build(BuildContext context) {
+        ScreenUtil.init(context, designSize: const Size(360, 852));
     return MaterialApp(
       home: Scaffold(
         body: PersistentTabView(
@@ -62,6 +64,7 @@ class _NavigationBarsState extends State<NavigationBars> {
           context,
           confineToSafeArea: true,
           controller: _controller,
+          navBarHeight: 65.h,
           items: _navBarItems(),
           navBarStyle: NavBarStyle.style6,
           backgroundColor: MyColors.white,
