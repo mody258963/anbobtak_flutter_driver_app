@@ -1,7 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:pusher_beams/pusher_beams.dart';
 
 import 'presntation_lyar/widgets/app_router.dart';
 
@@ -10,6 +12,17 @@ String? ids;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await ScreenUtil.ensureScreenSize();
+  await Firebase.initializeApp(
+    options: FirebaseOptions(
+      apiKey: "AIzaSyASmpa4YmxIBRbVL_TM1PpOGjW2jC2R7UQ",
+      authDomain: "flutter-geolocation-9f4c3.firebaseapp.com",
+      projectId: "anbobtak-d2b94",
+      storageBucket: "anbobtak-d2b94.appspot.com",
+      messagingSenderId: "75152996159", 
+      appId: '1:75152996159:android:ab7762f2b7740c9971c58a'
+  ));
+  await PusherBeams.instance.start('24340098-8055-4e3b-bd3b-a6c713edadcd');
+  await PusherBeams.instance.addDeviceInterest('hello');
 
  PermissionStatus status = await Permission.notification.request();
   if (status.isGranted) {
@@ -20,7 +33,6 @@ void main() async {
   } else {
     // Handle permission denial
   }
-
   // final prefs = await SharedPreferences.getInstance();
 
   // Future<bool> checkToken() async {

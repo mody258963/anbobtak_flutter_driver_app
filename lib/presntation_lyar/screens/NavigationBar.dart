@@ -7,6 +7,7 @@ import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+import 'package:pusher_beams/pusher_beams.dart';
 
 class NavigationBars extends StatefulWidget {
   const NavigationBars({super.key});
@@ -15,16 +16,15 @@ class NavigationBars extends StatefulWidget {
 }
 
 class _NavigationBarsState extends State<NavigationBars> {
- 
   @override
+  void initState() {
+    super.initState();
 
-
-  @override
-  void didChangeDependencies() {
-    // BlocProvider.of<GetMethodCubit>(context).emitGetAllCourseOfTeacher();
-    super.didChangeDependencies();
+    PusherBeams.instance.onMessageReceivedInTheForeground((notification) {
+      print('Notification received: ${notification}');
+      // Handle notification here
+    });
   }
-
   List<PersistentBottomNavBarItem> _navBarItems() {
     return [
       PersistentBottomNavBarItem(
