@@ -11,6 +11,7 @@ android {
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
+        coreLibraryDesugaringEnabled true
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -22,6 +23,7 @@ android {
     defaultConfig {
         // Specify your own unique Application ID.
         applicationId = "com.example.anbobtak_flutter_driver_app"
+        multiDexEnabled true
         // Updated to meet library requirements.
         minSdk = 21 // Set to 19 to be compatible with androidx.window and other libraries
         targetSdk = flutter.targetSdkVersion
@@ -39,6 +41,8 @@ android {
     dependencies {
         implementation 'com.google.firebase:firebase-messaging:21.1.0'
         implementation 'com.pusher:push-notifications-android:1.9.0'
+        coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.2.2' // Check for the latest version
+
     }
 }
 
