@@ -3,6 +3,7 @@ plugins {
     id "kotlin-android"
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
@@ -41,9 +42,11 @@ android {
     dependencies {
         implementation 'com.google.firebase:firebase-messaging:21.1.0'
         implementation 'com.pusher:push-notifications-android:1.9.0'
+        implementation platform('com.google.firebase:firebase-bom:32.2.3') // Latest Firebase BOM
+        implementation 'com.google.firebase:firebase-analytics' // Automatically includes firebase-core
         coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.2.2' // Check for the latest version
+}
 
-    }
 }
 
 
